@@ -45,9 +45,6 @@ function showNotes() {
         notesElm.innerHTML = "<b><i>Notes collection section is empty plz write some text and click on the Add Note button to add your notes</i></b>";
     }
 }
-
-
-//function for deletion
 function deleteNote(index) {
     let notes = localStorage.getItem("notes");
     if (notes == null) {
@@ -60,15 +57,12 @@ function deleteNote(index) {
     localStorage.setItem("notes", JSON.stringify(notesObj));
     showNotes();
 }
-
-//for searching a particular text form the search bar and finding it in the notes section
 let search = document.getElementById("searchTxt");
 search.addEventListener("input", function () {
     let inputval = search.value.toLowerCase();
-    console.log("Input event fired!!", inputval);
     let noteCard = document.getElementsByClassName("noteCard");
     Array.from(noteCard).forEach(function (element) {
-        let cardTxt = element.getElementsByTagName("p")[0].innerText;
+        let cardTxt = element.getElementsByTagName("p")[0].innerText.toLowerCase();
         if (cardTxt.includes(inputval)) {
             element.style.display = "block";
         }
@@ -76,5 +70,4 @@ search.addEventListener("input", function () {
             element.style.display = "none";
         }
     })
-
-})
+});
