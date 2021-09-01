@@ -8,9 +8,24 @@
     <title>Magic-Notes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<style>
-</style>
-    </head>
+    <style>
+        .heading {
+            color: rgb(47, 255, 75);
+        }
+
+        .up,
+        .down {
+            border: 2px solid rgba(16, 228, 243, 0.466);
+        }
+        .card-title{
+            color: rgb(153, 4, 91);
+        }
+        .your-notes
+        {
+            color: rgb(255, 0, 34);
+        }
+    </style>
+</head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,39 +42,35 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" id="searchTxt" type="search" placeholder="Search"
+                        aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
     <div class="container my-3">
-        <h1>Welcome To Magic Notes</h1>
-        <div class="card">
+        <h1 class="heading">Welcome To Magic Notes</h1>
+        <div class="card border-dark border-4">
             <div class="card-body">
                 <h5 class="card-title">Add Notes</h5>
                 <div class="form-floating">
-                    <textarea class="form-control my-2" id="addTxt"></textarea>
+                    <textarea class="form-control my-2 border-dark" id="addTxt"></textarea>
                 </div>
-                <button href="#" class="btn btn-primary" id="addBtn">+Add notes</button>
+                <button href="#" class="btn btn-primary button border-danger border-3" id="addBtn">+Add notes</button>
             </div>
         </div>
-        <hr>
-        <h1>Your Notes</h1>
-        <hr>
-        <div id="notes" class="row container-fluid">
-            <div class="my-2 mx-2 card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Note</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Delete notes</a>
-                </div>
-            </div>
-        </div>
+        <br>
+        <div class="up"></div>
+        <h1 class="your-notes">Your Notes</h1>
+        <div class="down"></div>
+        <br>
+        <div id="notes" class="row container-fluid"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
-        <script src="notes.js"></script>
+    <script src="notes.js"></script>
 </body>
+
 </html>
