@@ -64,19 +64,16 @@ function deleteNote(index) {
 //for searching a particular text form the search bar and finding it in the notes section
 let search = document.getElementById("searchTxt");
 search.addEventListener("input", function () {
-    let inputval=search.value.toLowerCase();
-    console.log("Input event fired!!",inputval);
-    let noteCard=document.getElementsByClassName("noteCard");
-    Array.from(noteCard).forEach(function(element)
-    {
-        let cardTxt=element.getElementsByTagName("p")[0].innerText;
-        if(cardTxt.includes(inputval))
-        {
-            element.style.display="block";
+    let inputval = search.value.toLowerCase();
+    console.log("Input event fired!!", inputval);
+    let noteCard = document.getElementsByClassName("noteCard");
+    Array.from(noteCard).forEach(function (element) {
+        let cardTxt = element.getElementsByTagName("p")[0].innerText;
+        if (cardTxt.includes(inputval)) {
+            element.style.display = "block";
         }
-        else
-        {
-            element.style.display="none";
+        else {
+            element.style.display = "none";
         }
     })
 
