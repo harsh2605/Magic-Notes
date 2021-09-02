@@ -3,6 +3,7 @@ showNotes();
 let addBtn = document.getElementById("addBtn");
 addBtn.addEventListener('click', function (e) {
     let addTxt = document.getElementById("addTxt");
+    let addTitle = document.getElementById("addTitle");
     let notes = localStorage.getItem("notes");
     if (notes == null) {
         notesObj = [];
@@ -10,9 +11,14 @@ addBtn.addEventListener('click', function (e) {
     else {
         notesObj = JSON.parse(notes);
     }
-    notesObj.push(addTxt.value);
+    let Myobj = {
+        title: addTitle.value,
+        Txt: addTxt.value
+    }
+    notesObj.push(Myobj);
     localStorage.setItem("notes", JSON.stringify(notesObj));
     addTxt.value = "";
+    addTitle.value = "";
     console.log(notesObj);
     showNotes();
 })
@@ -27,14 +33,13 @@ function showNotes() {
     let html = "";
     notesObj.forEach(function (element, index) {
         html += `
-        <div class=" noteCard my-2 mx-2 card border-warning border-4" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Note ${index + 1}</h5>
-            <p class="card-text">${element}</p>
-            <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-primary border-danger border-3">Delete notes</button>
+     <div class=" noteCard my-2 mx-2 card border-warning border-4" style="width: 18rem;">
+        <div class="card-body ">
+            <h5 class="card-title">${element.title}</h5>
+            <p class="card-text">${element.Txt}</p>
+            <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-primary border-dark border-3">Delete notes</button>
         </div>
-    </div>
-
+     </div>
 `;
     })
     let notesElm = document.getElementById("notes");
