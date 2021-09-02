@@ -47,7 +47,7 @@ function showNotes() {
         notesElm.innerHTML = html;
     }
     else {
-        notesElm.innerHTML = "<b><i>Notes collection section is empty plz write some text and click on the Add Note button to add your notes</i></b>";
+        notesElm.innerHTML = "<b><i>**********Notes section empty**********</i></b>";
     }
 }
 function deleteNote(index) {
